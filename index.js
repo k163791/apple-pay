@@ -5,12 +5,7 @@ const forge = require("node-forge");
 const ECKey = require("ec-key");
 const asn1js = require("asn1js");
 const pkijs = require("pkijs");
-// const Crypto = require("node-webcrypto-ossl");
 const fs = require("fs");
-// const rsa = require('encrypt-rsa').default;
-// const nodeRSA = require('node-rsa')
-// const  { secp256k1 } = require('@noble/curves/secp256k1');
-// const ecdh = require("ecdh");
 
 const TOKEN_EXPIRE_WINDOW = 122321231231233300000; // should be set to 5 minutes (300000 ms) per apple
 const LEAF_CERTIFICATE_OID = "1.2.840.113635.100.6.29";
@@ -18,10 +13,6 @@ const INTERMEDIATE_CA_OID = "1.2.840.113635.100.6.2.14";
 const SIGNINGTIME_OID = "1.2.840.113549.1.9.5";
 const MERCHANT_ID_FIELD_OID = "1.2.840.113635.100.6.32";
 
-// const encryptRSA = new rsa();
-// const nodeRSA = new rsa();
-
-//https://meet.google.com/gcr-abky-krw
 
 const AppleRootCABuffer = fs.readFileSync("./AppleRootCA-G3.cer"); // TODO: cret path update
 const AppleRootCAASN1 = asn1js.fromBER(
