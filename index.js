@@ -20,14 +20,13 @@ const AppleRootCAASN1 = asn1js.fromBER(
 );
 const AppleRootCA = new pkijs.Certificate({ schema: AppleRootCAASN1.result });
 
-// const crypto = new Crypto.Crypto()
 pkijs.setEngine(
   "newEngine",
-  cryptoNative,
+  cryptoNative.webcrypto,
   new pkijs.CryptoEngine({
     name: "",
-    crypto: cryptoNative,
-    subtle: cryptoNative.subtle,
+    crypto: cryptoNative.webcrypto,
+    subtle: cryptoNative.webcrypto.subtle,
   })
 );
 
